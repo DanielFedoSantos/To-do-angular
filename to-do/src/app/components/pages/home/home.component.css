@@ -29,6 +29,7 @@
 }
 
 .container .tasks .task a .main-information {
+    width: 50vw;
     overflow: hidden;
 }
 

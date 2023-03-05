@@ -1,13 +1,19 @@
 <div class="container">
-    <h1>Essas são suas tarefas pendentes: </h1>
+    <h1>Essas são suas <span>tarefas</span> pendentes: </h1>
 
     <div class="tasks">
         <div *ngFor="let task of tasks" class="task">
             <div class="task">
                 <a routerLink="tasks/new">
-                    <h3>Título: {{task.title}}</h3>
-                    <p>Descrição: {{task.description}}</p>
-                    <p>Data de entrega: {{task.delivery_date}}</p>
+
+                    <div class="main-information">
+                        <h3>Título: {{task.title}}</h3>
+                        <p>Descrição: {{task.description}}</p>
+                    </div>
+                    <div class="other-information">
+                        <p>Data de entrega: {{task.delivery_date}}</p>
+                        <!-- <i class="bi bi-pen"></i> -->
+                    </div>
                 </a>
             </div>
         </div>

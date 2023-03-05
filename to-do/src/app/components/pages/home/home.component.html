@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="container">
+    <h1>Essas são suas tarefas pendentes: </h1>
+
+    <div class="tasks">
+        <div *ngFor="let task of tasks" class="task">
+            <div class="task">
+                <a routerLink="tasks/new">
+                    <h3>Título: {{task.title}}</h3>
+                    <p>Descrição: {{task.description}}</p>
+                    <p>Data de entrega: {{task.delivery_date}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

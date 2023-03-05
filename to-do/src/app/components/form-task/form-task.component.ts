@@ -45,6 +45,19 @@ export class FormTaskComponent {
     if (this.taskForm.invalid)
     return
 
+    if (this.taskForm.value.delivery_date.length !== 10 ) {
+      alert("Data inválida")
+      return
+    }
+    if (this.taskForm.value.delivery_date[0] !== "2") {
+      alert("Data inválida")
+      return
+    }
+    if (this.taskForm.value.delivery_date[1] !== "0") {
+      alert("Data inválida")
+      return
+    }
+
     this.onSubmit.emit(this.taskForm.value)
   }
 

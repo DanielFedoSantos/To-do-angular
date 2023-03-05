@@ -1,0 +1,37 @@
+.container {
+    margin: 0 auto;
+    width: 75vw;
+}
+
+.container h1 {
+    font-size: 2em;
+    margin-bottom: .5em;
+    padding: 10px;
+}
+
+.container h1 span {
+    color: #2ECC71;
+}
+
+.container .tasks {
+    padding: 10px;
+}
+
+.container .tasks .task {
+    margin-bottom: 1em;
+}
+
+.container .tasks .task a{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    border: 3px solid #2AB865;
+}
+
+.container .tasks .task a .main-information {
+    overflow: hidden;
+}
+
+.container .tasks .task a .other-information {
+    margin-left: 10px;
+}

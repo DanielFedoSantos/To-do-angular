@@ -3,6 +3,7 @@ export interface Task {
     title: string,
     description: string,
     delivery_date: string,
+    conclude?: string
     creation_date?: string,
     edition_date?: string,
 }

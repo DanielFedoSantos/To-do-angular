@@ -1,1 +1,24 @@
-<p>form-task works!</p>
+<form (ngSubmit)="submit()" [formGroup]="taskForm" #formDir="ngForm">
+    <div class="form-field">
+        <label for="title">Título: </label>
+        <input type="text" formControlName="title" placeholder="Inisira um título para a tarefa" required>
+        <div *ngIf="title.invalid && formDir.submitted" class="error">
+        <p *ngIf="title.errors?.['required']">O título é obrigatório!</p>
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="description">Descrição: </label>
+        <textarea formControlName="description" placeholder="Inisira uma descrição para a tarefa"></textarea>
+        <div *ngIf="description.invalid && formDir.submitted" class="error">
+            <p *ngIf="description.errors?.['required']">A descrição obrigatória!</p>
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="delivery_date">Data de Entrega: </label>
+        <input type="date" formControlName="delivery_date">
+        <div *ngIf="delivery_date.invalid && formDir.submitted" class="error">
+            <p *ngIf="delivery_date.errors?.['required']">A data obrigatória!</p>
+        </div>
+    </div>
+    <input type="submit" value="Cadastrar">
+</form>

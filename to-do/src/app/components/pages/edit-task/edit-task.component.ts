@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Task } from 'src/app/Task';
+import { TaskService } from 'src/app/services/task.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-edit-task',
@@ -6,5 +10,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent {
+
+  btnText: string = "Editar"
+
+  task!: Task
+
+  constructor (
+    private taskService: TaskService,
+    private router: Router,
+    private route: ActivatedRoute, 
+    ) { }
+
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'))
+    
+    this.taskService.getTask(id).subscribe((item) => this.task = item)
+
+  }
+
+  async editTask(task: Task) {
+
+    console.log("aaaaaaaaaaaa",task)
+    task.edition_date = this.taskService.generateNowDate()
+    await this.taskService.editTask(task).subscribe((item) => this.task = item)
+
+    alert("Tarefa atualizada!")
+
+    this.router.navigate([`/tasks/detail/${this.task.id}`])
+
+  }
 
 }

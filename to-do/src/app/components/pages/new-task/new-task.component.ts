@@ -14,9 +14,12 @@ import { Router } from '@angular/router';
 })
 export class NewTaskComponent {
 
+  btnText: string = "Criar Tarefa!"
+
   constructor (private taskService: TaskService, private router: Router) { }
 
  async createTask(task: Task) {
+  task.creation_date = this.taskService.generateNowDate()
   await this.taskService.createTask(task).subscribe()
 
   alert("Tarefa adicionada com sucesso")

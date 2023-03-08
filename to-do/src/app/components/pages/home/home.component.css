@@ -19,6 +19,7 @@
 
 .container .tasks .task {
     margin-bottom: 1em;
+    background: #efefef;
 }
 
 .container .tasks .task a{

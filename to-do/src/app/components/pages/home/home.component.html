@@ -4,7 +4,7 @@
     <div class="tasks">
         <div *ngFor="let task of tasks" class="task">
             <div class="task">
-                <a routerLink="tasks/new">
+                <a routerLink="tasks/detail/{{task.id}}">
 
                     <div class="main-information">
                         <h3>Título: {{task.title}}</h3>

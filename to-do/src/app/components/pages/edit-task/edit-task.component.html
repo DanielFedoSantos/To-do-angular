@@ -1,1 +1,8 @@
-<p>edit-task works!</p>
+<div *ngIf="task" class="task">
+    <h2>Editando a <span>Tarefa</span> {{task.title}}: </h2>
+    <app-form-task 
+    [btnText]="btnText" 
+    [taskData] = "task" 
+    (onSubmit)="editTask($event)" 
+    ></app-form-task>
+</div>

@@ -15,7 +15,8 @@ import { FormTaskComponent } from './components/form-task/form-task.component';
 // modulos extras 
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MessageModalComponent } from './components/message-modal/message-modal.component'; 
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DetailTaskComponent,
     HeaderComponent,
     FooterComponent,
-    FormTaskComponent
+    FormTaskComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,

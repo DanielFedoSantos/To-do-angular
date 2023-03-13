@@ -13,6 +13,10 @@
     color: #2ECC71;
 }
 
+.container h3 {
+    margin: 0 0 .8em 2em;
+}
+
 .container .tasks {
     padding: 10px;
 }

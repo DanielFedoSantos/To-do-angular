@@ -10,7 +10,9 @@ import { Task } from 'src/app/Task';
 })
 export class HomeComponent {
 
-  tasks!: Task[]
+  // tasks!: Task[]
+  no_conclude_tasks?: Task[]
+  conclude_tasks?: Task[]
 
   constructor (private taskService: TaskService) { }
 
@@ -21,9 +23,32 @@ export class HomeComponent {
         item.delivery_date = new Date(item.delivery_date!).toLocaleDateString('pt-BR')
       })
 
-      this.tasks = items
+      this.divideTasks(items)
 
     })
+    
+    
+  }
+  
+  divideTasks(tasks: Task[]) {
+
+    let no_conclude_tasks = []
+    let conclude_tasks = []
+      
+    for(let task of tasks) {
+
+      if (!task.conclude_date) {
+        console.log('this')
+        no_conclude_tasks.push(task)
+        } else {
+          conclude_tasks.push(task)
+        }
+
+    }
+
+    this.no_conclude_tasks = no_conclude_tasks
+    this.conclude_tasks = conclude_tasks
+
   }
 
 }

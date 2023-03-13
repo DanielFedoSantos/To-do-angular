@@ -37,44 +37,77 @@
     cursor: pointer;
 }
 
+.confirm-exclude {
+    display: none;
+}
+
+.confirm-exclude.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00000084;
+}
+
+.confirm-exclude.active .modal-exclude {
+    padding: 30px;
+    background: #cdcdcd;
+    box-shadow: 5px 5px 5px 5px #0000002f;
+    border-radius: 5px;
+}
+
+.confirm-exclude.active .modal-exclude h2 {
+    margin-bottom: 1vh;
+}
+.confirm-exclude.active .modal-exclude p {
+    font-size: 1em;
+    margin-left: 5px;
+    margin-bottom: 1vh;
+}
+
+.confirm-exclude.active .modal-exclude p span {
+    color: #2ECC71;
+}
+
+.confirm-exclude.active .modal-exclude .buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-exclude.active .modal-exclude .buttons button {
+    padding: 6px 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.confirm-exclude.active .modal-exclude .buttons .confirm {
+    border: 2px solid #2ab865;
+    color: #2ab865;
+    transition: 1s;
+}
+
+.confirm-exclude.active .modal-exclude .buttons .confirm:hover {
+    background: #2ab865;
+    border-color: #2ab865;
+    color: #fff;
+}
+.confirm-exclude.active .modal-exclude .buttons .not-confirm {
+    border: 2px solid #dB0000;
+    color: #dB0000;
+    transition: 1s;
+}
+
+.confirm-exclude.active .modal-exclude .buttons .not-confirm:hover {
+    background: #dB0000;
+    border-color: #dB0000;
+    color: #fff;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-
-                        /* sisteminha de mensagens */
                         /* e filtragem de mensagem */
 
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-/* /////////////////////////////////// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */

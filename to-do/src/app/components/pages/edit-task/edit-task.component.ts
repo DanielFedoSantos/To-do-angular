@@ -3,6 +3,8 @@ import { Task } from 'src/app/Task';
 import { TaskService } from 'src/app/services/task.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { MessagesService } from 'src/app/services/messages.service';
+
 
 @Component({
   selector: 'app-edit-task',
@@ -19,6 +21,7 @@ export class EditTaskComponent {
     private taskService: TaskService,
     private router: Router,
     private route: ActivatedRoute, 
+    private messagesService: MessagesService,
     ) { }
 
   ngOnInit(): void {
@@ -34,7 +37,7 @@ export class EditTaskComponent {
     task.edition_date = this.taskService.generateNowDate()
     await this.taskService.editTask(task).subscribe((item) => this.task = item)
 
-    alert("Tarefa atualizada!")
+    this.messagesService.add("Tarefa atualizada!")
 
     this.router.navigate([`/tasks/detail/${this.task.id}`])
 

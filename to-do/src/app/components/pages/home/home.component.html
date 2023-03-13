@@ -1,21 +1,51 @@
 <div class="container">
-    <h1>Essas são suas <span>tarefas</span> pendentes: </h1>
+    <div class="no-conclude-tasks">
+        <h1>Essas são suas tarefas <span>pendentes</span>: </h1>
 
-    <div class="tasks">
-        <div *ngFor="let task of tasks" class="task">
-            <div class="task">
-                <a routerLink="tasks/detail/{{task.id}}">
-
-                    <div class="main-information">
-                        <h3>Título: {{task.title}}</h3>
-                        <p>Descrição: {{task.description}}</p>
-                    </div>
-                    <div class="other-information">
-                        <p>Data de entrega: {{task.delivery_date}}</p>
-                        <!-- <i class="bi bi-pen"></i> -->
-                    </div>
-                </a>
+        <div class="tasks" *ngIf="no_conclude_tasks ; else noTasksNoConclude">
+            <div *ngFor="let task of no_conclude_tasks" class="task">
+                <div class="task">
+                    <a routerLink="tasks/detail/{{task.id}}">
+    
+                        <div class="main-information">
+                            <h3>Título: {{task.title}}</h3>
+                            <p>Descrição: {{task.description}}</p>
+                        </div>
+                        <div class="other-information">
+                            <p>Data de entrega: {{task.delivery_date}}</p>
+                            <!-- <i class="bi bi-pen"></i> -->
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
+        <ng-template #noTasksNoConclude>
+            <h3>[Não há momentos pendentes]</h3>
+        </ng-template>
+    </div>
+
+    <div class="conclude-tasks">
+        <h1>Essas são suas tarefas já <span>concluídas</span>:</h1>
+
+        <div class="tasks" *ngIf="conclude_tasks ; else noTasksConclude">
+            <div *ngFor="let task of conclude_tasks" class="task">
+                <div class="task">
+                    <a routerLink="tasks/detail/{{task.id}}">
+    
+                        <div class="main-information">
+                            <h3>Título: {{task.title}}</h3>
+                            <p>Descrição: {{task.description}}</p>
+                        </div>
+                        <div class="other-information">
+                            <p>Data de entrega: {{task.delivery_date}}</p>
+                            <!-- <i class="bi bi-pen"></i> -->
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ng-template #noTasksConclude>
+            <h3>[Não há momentos concluídos]</h3>
+        </ng-template>
     </div>
 </div>

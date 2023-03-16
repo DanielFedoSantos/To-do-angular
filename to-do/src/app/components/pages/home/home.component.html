@@ -4,7 +4,7 @@
 
         <div class="tasks" *ngIf="no_conclude_tasks ; else noTasksNoConclude">
             <div *ngFor="let task of no_conclude_tasks" class="task">
-                <div class="task">
+                <div  *ngIf="localDate < task.delivery_date ; else expiredTask" class="task">
                     <a routerLink="tasks/detail/{{task.id}}">
     
                         <div class="main-information">
@@ -17,6 +17,21 @@
                         </div>
                     </a>
                 </div>
+                <ng-template #expiredTask>
+                    <div class=" task expired-task">
+                        <a routerLink="tasks/detail/{{task.id}}">
+        
+                            <div class="main-information">
+                                <h3>Título: {{task.title}}</h3>
+                                <p>Descrição: {{task.description}}</p>
+                            </div>
+                            <div class="other-information">
+                                <p>Data de entrega: {{task.delivery_date}}</p>
+                                <!-- <i class="bi bi-pen"></i> -->
+                            </div>
+                        </a>
+                    </div>
+                </ng-template>
             </div>
         </div>
         <ng-template #noTasksNoConclude>

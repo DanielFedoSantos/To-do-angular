@@ -50,5 +50,10 @@ export class TaskService {
     const date = `${dateYear}-${dateMonth}-${dateDay}`
     return date
   }
+  generateNowLocalDate() {
+    const newDate = new Date(this.generateNowDate())
+    const date = newDate.toLocaleDateString('pt-BR')
+    return date
+  }
 
 }

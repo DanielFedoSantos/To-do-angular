@@ -8,7 +8,9 @@
         </div>
     </div>
 </div>
-<div *ngIf="task" class="container">
+
+<div *ngIf="task && localDate < task.delivery_date ; else expiredTask" class="container">
+
     <h2 class="title">{{task.title}}</h2>
 
     <p class="description">
@@ -17,19 +19,19 @@
 
     <div class="date">
         <p>
-            Prazo: <i>{{formatDate(task.delivery_date)}}</i>
+            Prazo: <i>{{task.delivery_date}}</i>
         </p>
         <p>
-            Criada em: <i>{{formatDate(task.creation_date)}}</i>
+            Criada em: <i>{{task.creation_date}}</i>
         </p>
         <p *ngIf="task.edition_date">
             Editada em: <i>
-                {{formatDate(task.edition_date)}}
+                {{task.edition_date}}
             </i>
         </p>
         <p *ngIf="task.conclude_date">
             Concluída em: <i>
-                {{formatDate(task.conclude_date)}}
+                {{task.conclude_date}}
             </i>
         </p>
         
@@ -59,3 +61,45 @@
     </div>
 
 </div>
+
+<ng-template #expiredTask>
+    <div class="container expired-task">
+        <h2 class="title">{{task.title}}</h2>
+
+        <p class="description">
+            Descrição: {{task.description}}
+        </p>
+    
+        <div class="date">
+            <p>
+                Prazo: <i>{{task.delivery_date}}</i>
+            </p>
+            <p>
+                Criada em: <i>{{task.creation_date}}</i>
+            </p>
+            <p *ngIf="task.edition_date">
+                Editada em: <i>
+                    {{task.edition_date}}
+                </i>
+            </p>
+            <p *ngIf="task.conclude_date">
+                Concluída em: <i>
+                    {{task.conclude_date}}
+                </i>
+            </p>
+            
+        </div>
+    
+        <div class="actions">
+            
+            <div class="action">
+
+                <p>Vencida</p>
+    
+                <i (click)="task.id ? showModal() : alertar('Id não encontrado')" class="bi bi-trash3"></i>
+    
+            </div>
+            
+        </div>
+    </div>
+</ng-template>

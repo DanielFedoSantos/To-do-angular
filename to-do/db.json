@@ -9,10 +9,12 @@
     },
     {
       "id": 15,
+      "creation_date": null,
+      "conclude_date": "2023-03-14",
       "title": "segunda tarefa da nova temporada1",
-      "description": "teste aaaa 2222",
+      "description": "teste aaaa 2222asd",
       "delivery_date": "2023-03-23",
-      "edition_date": "2023-03-07"
+      "edition_date": "2023-03-14"
     },
     {
       "id": 16,
@@ -93,6 +95,22 @@
       "description": "fé, testando agr (funcionou dog)\n",
       "delivery_date": "2023-03-28",
       "edition_date": "2023-03-11"
+    },
+    {
+      "id": 27,
+      "creation_date": "2023-03-14",
+      "conclude_date": "",
+      "title": "tarefa vence abril",
+      "description": "asd",
+      "delivery_date": "2023-04-01"
+    },
+    {
+      "id": 29,
+      "creation_date": "2023-03-14",
+      "conclude_date": "",
+      "title": "tarefa junho",
+      "description": "ads",
+      "delivery_date": "2023-06-01"
     }
   ]
 }

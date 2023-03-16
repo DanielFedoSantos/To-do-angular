@@ -26,11 +26,19 @@
     background: #efefef;
 }
 
+.container .tasks .task .expired-task {
+    background: #e2e2e2;
+}
+
 .container .tasks .task a{
     display: flex;
     justify-content: space-between;
     padding: 1em;
     border: 3px solid #2AB865;
+}
+
+.container .tasks .task .expired-task a {
+    border: 3px solid #dB0000;
 }
 
 .container .tasks .task a .main-information {

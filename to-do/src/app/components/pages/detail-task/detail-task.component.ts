@@ -14,6 +14,8 @@ export class DetailTaskComponent {
 
   task!: Task
 
+  localDate!: string 
+
   constructor (
     private taskService: TaskService,
     private route: ActivatedRoute,
@@ -23,8 +25,15 @@ export class DetailTaskComponent {
 
   ngOnInit(): void {
 
+    this.localDate = this.taskService.generateNowLocalDate()
+    
     const id = Number(this.route.snapshot.paramMap.get("id"))
-    this.taskService.getTask(id).subscribe((item) => (this.task = item))
+    this.taskService.getTask(id).subscribe((item) => {
+
+      item.delivery_date = new Date(item.delivery_date!).toLocaleDateString('pt-BR')
+      
+      this.task = item
+    })
     
   }
   
@@ -47,32 +56,18 @@ export class DetailTaskComponent {
 
 
   }
-
-  formatDate(date: string) {
-    return new Date(date).toLocaleDateString('pt-BR')
-  }
-
-  // confirmExclude(id: number | undefined, confimm: boolean | undefined) {
-  //   // confirm("Tem certeza que deseja excluir pernamentemente essa tarefa?")
-  //   if (id) {
-  //     this.removeTask(id)
-  //   }
-  // } 
-
-  // confirmExclude(id: number) {
-    
-  //   if (confirm("Tem certeza que deseja excluir pernamentemente essa tarefa?")) {
-  //     this.removeTask(id)
-  //   }
-  // } 
   
   alertar(message: string) {
-    // espero que nunca seja executada
     this.messagesService.add(message)
   }
 
   showModal() {
     document.getElementById('modal-exclude')?.classList.toggle('active')
+  }
+
+  mostrarConsole () {
+    console.log("Data atual",this.localDate)
+    console.log("data de entrega",this.task.delivery_date)
   }
   
 

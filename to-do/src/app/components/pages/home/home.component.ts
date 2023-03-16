@@ -10,13 +10,16 @@ import { Task } from 'src/app/Task';
 })
 export class HomeComponent {
 
-  // tasks!: Task[]
   no_conclude_tasks?: Task[]
   conclude_tasks?: Task[]
 
+  localDate!: string
+  
   constructor (private taskService: TaskService) { }
-
+  
   ngOnInit(): void {
+
+    this.localDate = this.taskService.generateNowLocalDate()
 
     this.taskService.getTasks().subscribe((items) => {
       items.map((item) => {
@@ -36,9 +39,12 @@ export class HomeComponent {
     let conclude_tasks = []
       
     for(let task of tasks) {
+      // checando vencimento
+      // if (this.taskService.generateNowLocalDate() > task.delivery_date) {
+      //   console.log ('Nome: ' , task.title, ' vencida')
+      // }
 
       if (!task.conclude_date) {
-        console.log('this')
         no_conclude_tasks.push(task)
         } else {
           conclude_tasks.push(task)

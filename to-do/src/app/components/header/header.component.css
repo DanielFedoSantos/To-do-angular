@@ -15,8 +15,9 @@ nav .logo {
     align-items: center;
 }
 
-nav .logo img {
-    width: 80px;
+nav .logo .brand {
+    font-size: 5em;
+    color: #2AB865;
 }
 
 nav .logo a h2 {
